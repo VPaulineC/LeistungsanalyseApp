@@ -1,5 +1,6 @@
 import my_functions
 import time
+import json
 
 
 if __name__ == "__main__":
@@ -21,3 +22,7 @@ if __name__ == "__main__":
                   "Mittelwert:": calculation.calc_mean(list_of_measurements= Mittelwert)
             }
     print(Dictionary)
+
+
+with open("smain.json", "wa") as outfile: 
+    json.dump(Dictionary, outfile)
