@@ -18,11 +18,10 @@ if __name__ == "__main__":
 
     Dictionary = {"Maximale Herzrate:": my_functions.estimate_max_hr(age_years=Alter,sex = Geschlecht),
                   "Personen Angabe": my_functions.build_person(first_name=Vorname,last_name=Zuname,sex=Geschlecht,age=Alter),
-                  "Experiment:": my_functions.build_experiment(experiment_name=Name_Experiment,date=Datum,supervisor=Supervisor,subject=Thema),
-                  "Mittelwert:": calculation.calc_mean(list_of_measurements= Mittelwert)
+                  "Experiment:": my_functions.build_experiment(experiment_name=Name_Experiment,date=Datum,supervisor=Supervisor,subject=Thema)
             }
     print(Dictionary)
 
 
-with open("smain.json", "wa") as outfile: 
+with open("sample.json", "a") as outfile: 
     json.dump(Dictionary, outfile)
