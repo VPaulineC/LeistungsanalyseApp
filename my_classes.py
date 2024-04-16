@@ -17,7 +17,7 @@ class Person():
         self.age_years = age_years
         self.estimate_max_hr = estimate_max_hr(age_years, sex)
 
-  
+    
     def __dict__(self):
             return {
                 'first': self.first_name,
@@ -26,6 +26,7 @@ class Person():
                 'age': self.age_years,
                 'estimate_max_hr': self.estimate_max_hr
             }
+    
 
     def save(self):
         with open('person.json', 'w') as file:
@@ -39,6 +40,7 @@ class Experiment():
         self.supervisor = supervisor
         self.subjects = subjects
     
+     
     def __dict__(self):
             return {
                 'experiment_name': self.experiment_name,
@@ -46,10 +48,7 @@ class Experiment():
                 'supervisor': self.supervisor,
                 "subjects": self.subjects
             }
-
+    
     def save(self):
         with open('experiment.json', 'w') as file:
             json.dump(self.__dict__(), file)
-
-Person1 = Person('John', 'Doe', 'male', 25)
-print(Person1.__dict__())
