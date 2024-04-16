@@ -1,30 +1,42 @@
+import json
+
 class Person():
-    """A simple attempt to model a person."""
-    def __init__(self, first, last, sex, age):
-        self.first_name = first
-        self.last_name = last
+    def __init__(self,first,last,sex,age,estimate_max_hr):
+        self.first = first
+        self.last = last
         self.sex = sex
-        self.age_years = age
-        self.estimated_max_hr = self.estimate_max_hr(sex,age)
+        self.age = age
+        self.estimate_max_hr = estimate_max_hr
+         
+    def __dict__(self):
+            return {
+                'first': self.first,
+                'last': self.last,
+                'sex': self.sex,
+                'age': self.age,
+                'estimate_max_hr': self.estimate_max_hr
+            }
 
-    def estimate_max_hr(self, age_years : int , sex : str) -> int:
-  
-        if sex == "male":
-            max_hr_bpm =  223 - 0.9 * age_years
-        elif sex == "female":
-            max_hr_bpm = 226 - 1.0 *  age_years
-        else:
-    # der input() öffnet ein Eingabefenster für den Nutzer und speichert die Eingabe
-            max_hr_bpm  = input("Enter maximum heart rate:")
-        return int(max_hr_bpm)
-P1=("Pauline", "Voigtsberger", "female", 19)
+    def save(self):
+        with open('person.json', 'w') as file:
+            json.dump(self.__dict__(), file)
+    
 
-my_dictionary=P1.__dict__
-print(my_dictionary)
+class Experiment():
+    def __init__(self, experiment_name, date, supervisor, subjects):
+        self.experiment_name = experiment_name
+        self.date = date
+        self.supervisor = supervisor
+        self.subjects = subjects
+    
+    def __dict__(self):
+            return {
+                'experiment_name': self.experiment_name,
+                'date': self.date,
+                'supervisor': self.supervisor,
+                "subjects": self.subjects
+            }
 
-
-
-
-
-
-
+    def save(self):
+        with open('experiment.json', 'w') as file:
+            json.dump(self.__dict__(), file)
