@@ -1,19 +1,29 @@
 import json
 
+def estimate_max_hr(age_years: int, sex: str) -> int:
+    if sex == "male":
+        max_hr_bpm =  223 - 0.9 * age_years
+    elif sex == "female":
+        max_hr_bpm = 226 - 1.0 *  age_years
+    else:
+        max_hr_bpm = int(input("Enter maximum heart rate:"))
+    return max_hr_bpm
+
 class Person():
-    def __init__(self,first,last,sex,age,estimate_max_hr):
-        self.first = first
-        self.last = last
+    def __init__(self, first_name, last_name, sex, age_years):
+        self.first_name = first_name
+        self.last_name = last_name
         self.sex = sex
-        self.age = age
-        self.estimate_max_hr = estimate_max_hr
-         
+        self.age_years = age_years
+        self.estimate_max_hr = estimate_max_hr(age_years, sex)
+
+  
     def __dict__(self):
             return {
-                'first': self.first,
-                'last': self.last,
+                'first': self.first_name,
+                'last': self.last_name,
                 'sex': self.sex,
-                'age': self.age,
+                'age': self.age_years,
                 'estimate_max_hr': self.estimate_max_hr
             }
 
@@ -40,3 +50,6 @@ class Experiment():
     def save(self):
         with open('experiment.json', 'w') as file:
             json.dump(self.__dict__(), file)
+
+Person1 = Person('John', 'Doe', 'male', 25)
+print(Person1.__dict__())
