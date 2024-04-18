@@ -1,27 +1,33 @@
-import my_functions
 import time
 import json
+import my_classes
+
 
 
 if __name__ == "__main__":
-    eingabe = input("Bitte gib dein Alter ein: ")
-    Alter = int(eingabe)
-    Geschlecht = input(str("male/female? "))
-    Vorname = input(str("Vorname: "))
-    Zuname = input(str("Nachname: "))
-    Name_Experiment = "Leistungsanalyse"
-    Datum = time.strftime("%d/%m/%Y")
-    Supervisor = "Max Mustermann"
-    Thema =  "Leistung"
+
+    #Inputs für Person() und Experiment()
+    eingabe=input ("Gib bitte dein Alter ein: ")
+    age_years = int(eingabe)
+    sex = input(str("male/female? "))
+    first_name = input(str("Vorname: "))
+    last_name = input(str("Nachname: "))
+    experiment_name = input(str("Gib bitte einen Namen für das Experiment an"))
+    date = time.strftime("%d/%m/%Y")
+    supervisor = input(str("Gib bitte den Supervisor an: "))
+    subject =  input(str("Gib bitte das Subjekt an: "))
     
+    # Person1 und Experiment1 erstellen
+    Person1 = my_classes.Person(first_name, last_name, sex, age_years)
+    Experiment1 = my_classes.Experiment(experiment_name, date, supervisor, subject)
+    
+    #Person1 und Experiment1 als Dictionarys printen
+    print(Person1.__dict__)
+    print(Experiment1.__dict__)
+    
+    #Dictionarys von Person1 und Experiment1 in sample.json speichern
+    my_classes.Person.save(Person1)
+    my_classes.Experiment.save(Experiment1)
+    
+ 
 
-
-    Dictionary = {"Maximale Herzrate:": my_functions.estimate_max_hr(age_years=Alter,sex = Geschlecht),
-                  "Personen Angabe": my_functions.build_person(first_name=Vorname,last_name=Zuname,sex=Geschlecht,age=Alter),
-                  "Experiment:": my_functions.build_experiment(experiment_name=Name_Experiment,date=Datum,supervisor=Supervisor,subject=Thema)
-            }
-    print(Dictionary)
-
-
-with open("sample.json", "a") as outfile: 
-    json.dump(Dictionary, outfile)
