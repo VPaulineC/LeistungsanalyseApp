@@ -12,7 +12,7 @@ if __name__ == "__main__":
     sex = input(str("male/female? "))
     first_name = input(str("Vorname: "))
     last_name = input(str("Nachname: "))
-    experiment_name = input(str("Gib bitte einen Namen für das Experiment an"))
+    experiment_name = input(str("Gib bitte einen Namen für das Experiment an: "))
     date = time.strftime("%d/%m/%Y")
     supervisor = input(str("Gib bitte den Supervisor an: "))
     subject =  input(str("Gib bitte das Subjekt an: "))
