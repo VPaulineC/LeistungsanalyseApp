@@ -6,7 +6,7 @@ import my_classes
 
 if __name__ == "__main__":
 
-    #Inputs für Person() und Experiment()
+    #Inputs für die Klassen Person() und Experiment()
     eingabe=input ("Gib bitte dein Alter ein: ")
     age_years = int(eingabe)
     sex = input(str("male/female? "))
