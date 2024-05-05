@@ -1,23 +1,38 @@
+import requests
 import json
+
+
 #Erstellung der Klasse Person
 class Person():
     def __init__(self, first_name, last_name):
         self.first_name = first_name
         self.last_name = last_name
        
-    
     def save(self):
         with open('person.json', 'w') as file:
             json.dump(self.__dict__(), file)
+
+    def put(self):
+        url = "http://127.0.0.1:5000/person/"
+
+        data = {
+            "name": self.first_name
+            }
+        
+        data_json = json.dumps(data)
+        response = requests.post(url, data=data_json)
+        print(response.text)
+
 #Erstellung der Subklasse Subject
 class Subject(Person):
     
-    def __init__(self, first_name, last_name,sex,birthdate,age):
+    def __init__(self, first_name, last_name,sex,birthdate,age,email):
         super().__init__(first_name, last_name)
         self.sex = sex
         self.__birthdate = birthdate
         self.age = age
         self.estimate_max_hr = self.estimate_max_h()
+        self.email=email
 
     def estimate_max_h(self) -> int:
         if self.sex == "male":
@@ -31,6 +46,18 @@ class Subject(Person):
     def introduce(self):
         print("Mein Name lautet: {} {}".format(self.first_name,self.last_name))
         print("Meine Herzrate lautet: {}".format(self.estimate_max_hr))
+    
+    def update_email(self, new_email):
+        self.email = new_email
+        url = "http://127.0.0.1:5000/person/Testname2"
+        data = {
+            "name": self.first_name,
+            "email": self.email,
+            "age" : self.age}
+
+        data_json = json.dumps(data)
+        response = requests.put(url, data=data_json)
+        print(response.text)
 
 class Supervisor(Person):
     def __init__(self,first_name, last_name):

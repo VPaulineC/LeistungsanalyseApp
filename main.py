@@ -12,17 +12,21 @@ if __name__ == "__main__":
     Datum = time.strftime("%d/%m/%Y")
     Betreuer = input(str("Name des Betreuers: "))
     Thema =  input(str("Subjekt: "))
+    email = input(str("Email: "))
 
 
     day,month,year = map(int, birthdate1.split("-"))
     today = datetime.date.today()
     age  = today.year - year - ((today.month, today.day) < (month, day))
 
-    person = Subject(first_name=Vorname, last_name=Zuname, sex=Geschlecht, birthdate = birthdate1, age = age)
+    person = Subject(first_name=Vorname, last_name=Zuname, sex=Geschlecht, birthdate = birthdate1, age = age,email=email)
     person.introduce()
     experiment = Experiment(experiment_name=Name_Experiment, date=Datum, supervisor=Betreuer, subjects=Thema)
     Superb = Supervisor(first_name=Vorname, last_name=Zuname)
     Superb.introduce()
+
+    def get_instances():
+        return person
 
     Dictionary = {
         "Maximale Herzrate:": person.estimate_max_hr,
@@ -32,10 +36,11 @@ if __name__ == "__main__":
     }
     
     
-
-with open("sample.json", "a") as outfile: 
+with open("data.json", "a") as outfile: 
     json.dump(Dictionary, outfile)
     outfile.write("\n")
+
+    
 
 
 
