@@ -12,6 +12,7 @@ if __name__ == "__main__":
     sex = input(str("male/female? "))
     Subject_first_name = input(str("Vorname Subject: "))
     Subject_last_name = input(str("Nachname Subject: "))
+    email = input(str("Gib bitte die E-Mail Adresse des Subjects an: "))
     dateofbirth = input(str("Gib bitte dein Geburtsdatum ein: "))
     experiment_name = input(str("Gib bitte einen Namen für das Experiment an: "))
     date = time.strftime("%d/%m/%Y")
@@ -20,7 +21,7 @@ if __name__ == "__main__":
     
     
     # Subject1, Supervisor1 und Experiment1 erstellen
-    Subject1 = my_classes.Subject(Subject_first_name, Subject_last_name, sex, age_years, dateofbirth)
+    Subject1 = my_classes.Subject(Subject_first_name, Subject_last_name, sex, age_years, dateofbirth, email)
     Supervisor1 = my_classes.Supervisor(Supervisor_first_name, Supervisor_last_name)
     Experiment1 = my_classes.Experiment(experiment_name, date, Supervisor1.__dict__, Subject1.__dict__)
     
