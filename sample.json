@@ -1,4 +1,2 @@
-{"first_name": "Pauline", "last_name": "Voigtsberger", "_Subject__dateofbirth": "24/10/2004", "sex": "female", "age_years": 19, "email": "vp2765@mci4me.at"}
-{"experiment_name": "Leistungstest", "date": "05/05/2024", "supervisor": {"first_name": "Andreas", "last_name": "Holzner"}, "subject": {"first_name": "Pauline", "last_name": "Voigtsberger", "_Subject__dateofbirth": "24/10/2004", "sex": "female", "age_years": 19, "email": "vp2765@mci4me.at"}}
-{"first_name": "Pauline", "last_name": "Voigtsberger", "_Subject__dateofbirth": "24/10/2004", "sex": "female", "age_years": 19, "email": "p.c.voigtsberger@gmx.de"}
-{"experiment_name": "Leistungstest", "date": "05/05/2024", "supervisor": {"first_name": "Andreas", "last_name": "Holzner"}, "subject": {"first_name": "Pauline", "last_name": "Voigtsberger", "_Subject__dateofbirth": "24/10/2004", "sex": "female", "age_years": 19, "email": "p.c.voigtsberger@gmx.de"}}
+{"first_name": "Pauline", "last_name": "Voigtsberger", "_Subject__dateofbirth": "31/10/2004", "sex": "female", "age_years": 19, "email": "pauli@gmx.de"}
+{"experiment_name": "Leistungstest", "date": "06/05/2024", "supervisor": {"first_name": "Franzi", "last_name": "Voigtsberger"}, "subject": {"first_name": "Pauline", "last_name": "Voigtsberger", "_Subject__dateofbirth": "31/10/2004", "sex": "female", "age_years": 19, "email": "pauli@gmx.de"}}
